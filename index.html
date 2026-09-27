@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botiax Hotel - Experiencia de Lujo & IA</title>
+    <link rel="icon" type="image/png" href="Botiax-Hotel-Favicon">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#16163A',
+                            gold: '#EC9D04',
+                            goldHover: '#d48c03',
+                            lightBg: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+            overflow-x: hidden;
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #EC9D04 0%, #B87A03 100%);
+        }
+        
+        .dark-gradient {
+            background: linear-gradient(135deg, #16163A 0%, #0D0D25 100%);
+        }
+        
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+        
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen relative text-gray-800">
+
+    <!-- HEADER COMPACTO -->
+    <header class="sticky top-0 z-40 w-full bg-brand-dark/95 backdrop-blur-md border-b border-white/10 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="Botiax-Hotel.png" alt="Botiax Hotel Logo" class="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/180x50/16163A/EC9D04?text=Botiax+Hotel'">
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-200">
+                <a href="#buscar" class="hover:text-brand-gold transition-colors">Habitaciones</a>
+                <a href="#galeria" class="hover:text-brand-gold transition-colors">Instalaciones</a>
+                <a href="#faq" class="hover:text-brand-gold transition-colors">Preguntas Frecuentes</a>
+                <a href="https://wa.me/5491165698921" target="_blank" class="px-4 py-1.5 rounded-full bg-brand-gold text-brand-dark font-semibold hover:bg-yellow-500 transition-all shadow-md flex items-center gap-2">
+                    <i class="fa-brands font-bold fa-whatsapp"></i> Reservar
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-200 hover:text-brand-gold p-1 focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-dark border-t border-white/10 px-4 py-3 space-y-3">
+            <a href="#buscar" class="block text-gray-200 hover:text-brand-gold font-medium py-1">Habitaciones</a>
+            <a href="#galeria" class="block text-gray-200 hover:text-brand-gold font-medium py-1">Instalaciones</a>
+            <a href="#faq" class="block text-gray-200 hover:text-brand-gold font-medium py-1">Preguntas Frecuentes</a>
+            <a href="https://wa.me/5491165698921" target="_blank" class="inline-flex items-center justify-center w-full px-4 py-2 rounded-lg bg-brand-gold text-brand-dark font-bold hover:bg-yellow-500 gap-2">
+                <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow">
+        
+        <!-- HERO COMPACTO Y BUSCADOR -->
+        <section class="relative bg-brand-dark text-white pt-6 pb-8 px-4 sm:px-6 lg:px-8 border-b border-brand-gold/20">
+            <!-- Background Accent -->
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#EC9D04_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+
+            <div class="max-w-6xl mx-auto relative z-10 text-center">
+                <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-brand-gold/20 text-brand-gold border border-brand-gold/30 mb-2">
+                    <i class="fa-solid fa-star text-xs mr-1"></i> Hotel Resort & Spa 5★
+                </span>
+                <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-2">
+                    Bienvenido a <span class="text-brand-gold">Botiax Hotel</span>
+                </h1>
+                <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-6">
+                    Confort de primer nivel, tecnología con IA para tu atención y servicios exclusivos.
+                </p>
+
+                <!-- BUSCADOR DE HABITACIONES -->
+                <div id="buscar" class="bg-white text-gray-800 rounded-2xl p-4 sm:p-5 shadow-2xl max-w-4xl mx-auto border border-gray-100">
+                    <form onsubmit="event.preventDefault(); highlightSearch();" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left">
+                        
+                        <!-- Fecha Check-In -->
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Check-in</label>
+                            <div class="relative">
+                                <input type="date" class="w-full text-sm font-medium bg-gray-50 border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-gold focus:outline-none">
+                            </div>
+                        </div>
+
+                        <!-- Fecha Check-Out -->
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Check-out</label>
+                            <div class="relative">
+                                <input type="date" class="w-full text-sm font-medium bg-gray-50 border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-gold focus:outline-none">
+                            </div>
+                        </div>
+
+                        <!-- Tipo de habitación (NUEVO REQUERIMIENTO) -->
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Tipo de Habitación</label>
+                            <select class="w-full text-sm font-medium bg-gray-50 border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-gold focus:outline-none cursor-pointer">
+                                <option value="king">Habitación Estándar Premium King</option>
+                                <option value="twin">Habitación Estándar Twin</option>
+                                <option value="queen">Habitación Estándar Queen</option>
+                                <option value="garden">Garden Suites</option>
+                            </select>
+                        </div>
+
+                        <!-- Botón Buscar -->
+                        <div class="flex items-end">
+                            <button type="submit" class="w-full bg-brand-gold hover:bg-yellow-500 text-brand-dark font-bold text-sm py-2.5 px-4 rounded-lg transition-all shadow-md flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-magnifying-glass"></i> Consultar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARRUSEL DE IMÁGENES / INSTALACIONES -->
+        <section id="galeria" class="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-6">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-brand-dark">Conoce Nuestras Instalaciones</h2>
+                    <p class="text-gray-500 text-sm mt-1">Explora nuestros espacios diseñados para tu máximo confort.</p>
+                </div>
+                <div class="flex items-center gap-2 mt-4 md:mt-0">
+                    <button onclick="prevSlide()" class="w-10 h-10 rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-brand-gold hover:text-white transition-all flex items-center justify-center shadow-sm">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button onclick="nextSlide()" class="w-10 h-10 rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-brand-gold hover:text-white transition-all flex items-center justify-center shadow-sm">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Carousel Container -->
+            <div class="relative overflow-hidden rounded-2xl shadow-xl bg-gray-900">
+                <div id="carouselSlides" class="flex transition-transform duration-500 ease-out">
+                    
+                    <!-- Slide 1 -->
+                    <div class="min-w-full relative h-[320px] sm:h-[420px]">
+                        <img src="habitaciones.png" alt="Habitaciones" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1000x500/16163A/FFFFFF?text=Habitaciones+de+Lujo'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                            <span class="text-brand-gold font-semibold text-xs tracking-wider uppercase">Habitaciones</span>
+                            <h3 class="text-xl sm:text-2xl font-bold">Habitaciones Estándar & Suites</h3>
+                            <p class="text-gray-200 text-sm max-w-xl mt-1">Elegancia, tranquilidad y camas King/Queen de alta gama.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="min-w-full relative h-[320px] sm:h-[420px]">
+                        <img src="piscina.png" alt="Piscina" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1000x500/16163A/FFFFFF?text=Piscina+Climatizada'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                            <span class="text-brand-gold font-semibold text-xs tracking-wider uppercase">Relax & Spa</span>
+                            <h3 class="text-xl sm:text-2xl font-bold">Piscina Climatizada & Solárium</h3>
+                            <p class="text-gray-200 text-sm max-w-xl mt-1">Ambiente exclusivo para desconectar a cualquier hora del día.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="min-w-full relative h-[320px] sm:h-[420px]">
+                        <img src="jardin.png" alt="Jardín" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1000x500/16163A/FFFFFF?text=Jardines+Exclusivos'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                            <span class="text-brand-gold font-semibold text-xs tracking-wider uppercase">Naturaleza</span>
+                            <h3 class="text-xl sm:text-2xl font-bold">Jardines & Áreas Verdes</h3>
+                            <p class="text-gray-200 text-sm max-w-xl mt-1">Extensos espacios al aire libre para disfrutar del sol y aire fresco.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="min-w-full relative h-[320px] sm:h-[420px]">
+                        <img src="recepción.png" alt="Recepción" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1000x500/16163A/FFFFFF?text=Recepción+24/7'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                            <span class="text-brand-gold font-semibold text-xs tracking-wider uppercase">Atención</span>
+                            <h3 class="text-xl sm:text-2xl font-bold">Lobby & Recepción 24HS</h3>
+                            <p class="text-gray-200 text-sm max-w-xl mt-1">Personal capacitado y soporte bot para tus necesidades continuas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="min-w-full relative h-[320px] sm:h-[420px]">
+                        <img src="juegos.png" alt="Juegos" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1000x500/16163A/FFFFFF?text=Área+de+Juegos'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                            <span class="text-brand-gold font-semibold text-xs tracking-wider uppercase">Entretenimiento</span>
+                            <h3 class="text-xl sm:text-2xl font-bold">Salón de Juegos & Recreación</h3>
+                            <p class="text-gray-200 text-sm max-w-xl mt-1">Espacios interactivos para el disfrute de adultos y niños.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Slide Indicators -->
+                <div class="absolute bottom-4 right-6 flex gap-2">
+                    <button onclick="goToSlide(0)" class="indicator w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all"></button>
+                    <button onclick="goToSlide(1)" class="indicator w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all"></button>
+                    <button onclick="goToSlide(2)" class="indicator w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all"></button>
+                    <button onclick="goToSlide(3)" class="indicator w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all"></button>
+                    <button onclick="goToSlide(4)" class="indicator w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PREGUNTAS FRECUENTES (FAQ) -->
+        <section id="faq" class="py-12 bg-white border-t border-gray-200">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <span class="text-brand-gold font-bold text-xs uppercase tracking-wider">Resolución Inmediata</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark mt-1">Preguntas Frecuentes</h2>
+                    <p class="text-gray-500 text-sm mt-1">Todo lo que necesitas saber antes y durante tu estadía.</p>
+                </div>
+
+                <div class="space-y-3">
+                    
+                    <!-- FAQ 1 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 shadow-sm">
+                        <button onclick="toggleFaq('faq1')" class="w-full text-left p-4 bg-gray-50 hover:bg-gray-100 font-semibold text-brand-dark flex justify-between items-center gap-4 text-sm sm:text-base">
+                            <span>¿Cuáles son los horarios de Check-in y Check-out?</span>
+                            <i id="faq1-icon" class="fa-solid fa-chevron-down text-brand-gold transition-transform"></i>
+                        </button>
+                        <div id="faq1" class="hidden p-4 bg-white text-gray-600 text-sm border-t border-gray-100 leading-relaxed">
+                            El horario de Check-in es a partir de las 15:00 hs y el Check-out es hasta las 13:00 hs. Si necesitas late check-out o early check-in, consulta disponibilidad en recepción o mediante nuestro bot.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 shadow-sm">
+                        <button onclick="toggleFaq('faq2')" class="w-full text-left p-4 bg-gray-50 hover:bg-gray-100 font-semibold text-brand-dark flex justify-between items-center gap-4 text-sm sm:text-base">
+                            <span>¿El desayuno está incluido en la estadía?</span>
+                            <i id="faq2-icon" class="fa-solid fa-chevron-down text-brand-gold transition-transform"></i>
+                        </button>
+                        <div id="faq2" class="hidden p-4 bg-white text-gray-600 text-sm border-t border-gray-100 leading-relaxed">
+                            ¡Sí! Todas nuestras tarifas incluyen un buffet ejecutivo servido de 07:00 a 10:30 hs en el Bufett Botiax.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 shadow-sm">
+                        <button onclick="toggleFaq('faq3')" class="w-full text-left p-4 bg-gray-50 hover:bg-gray-100 font-semibold text-brand-dark flex justify-between items-center gap-4 text-sm sm:text-base">
+                            <span>¿Cuentan con estacionamiento privado?</span>
+                            <i id="faq3-icon" class="fa-solid fa-chevron-down text-brand-gold transition-transform"></i>
+                        </button>
+                        <div id="faq3" class="hidden p-4 bg-white text-gray-600 text-sm border-t border-gray-100 leading-relaxed">
+                            Disponemos de estacionamiento privado gratuito para todos nuestros huéspedes. El estacionamiento es seguro, con vigilancia las 24 horas, accesos designados para personas con movilidad reducida y un área de carga para vehículos eléctricos.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 shadow-sm">
+                        <button onclick="toggleFaq('faq4')" class="w-full text-left p-4 bg-gray-50 hover:bg-gray-100 font-semibold text-brand-dark flex justify-between items-center gap-4 text-sm sm:text-base">
+                            <span>¿Aceptan mascotas (Pet Friendly)?</span>
+                            <i id="faq4-icon" class="fa-solid fa-chevron-down text-brand-gold transition-transform"></i>
+                        </button>
+                        <div id="faq4" class="hidden p-4 bg-white text-gray-600 text-sm border-t border-gray-100 leading-relaxed">
+                            Aceptamos mascotas pequeñas (hasta 10kg) con carné de vacunación vigente. Las mascotas deben estar siempre acompañadas por un adulto y bajo control, usando correa fuera de la habitación.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 shadow-sm">
+                        <button onclick="toggleFaq('faq5')" class="w-full text-left p-4 bg-gray-50 hover:bg-gray-100 font-semibold text-brand-dark flex justify-between items-center gap-4 text-sm sm:text-base">
+                            <span>¿Cómo puedo cancelar o modificar mi reserva?</span>
+                            <i id="faq5-icon" class="fa-solid fa-chevron-down text-brand-gold transition-transform"></i>
+                        </button>
+                        <div id="faq5" class="hidden p-4 bg-white text-gray-600 text-sm border-t border-gray-100 leading-relaxed">
+                            Las cancelaciones realizadas con más de 48hs de anticipación no tienen penalidad. Puedes gestionar tu modificación directamente vía WhatsApp al +549 11 6569 8921.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-white border-t border-white/10 py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-sm text-gray-400">
+            <div>
+                <p class="font-semibold text-white">Botiax Hotel & Spa</p>
+                <p class="text-xs mt-1">Servicio de Hospedaje Inteligente impulsado por Botiax IA</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/5491165698921" target="_blank" class="hover:text-brand-gold transition-colors flex items-center gap-1.5">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> +549 11 6569 8921
+                </a>
+            </div>
+            <div class="text-xs">
+                &copy; 2026 Botiax. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- BURBUJA DE INFORMACIÓN / SUGERENCIAS COMERCIAL (Esquina Inferior Izquierda) -->
+    <div class="fixed bottom-5 left-5 z-40">
+        <button onclick="toggleInfoModal()" class="gold-gradient hover:opacity-95 text-brand-dark font-bold p-3.5 rounded-full shadow-2xl flex items-center gap-2 border border-white/20 transition-all transform hover:scale-105">
+            <i class="fa-solid fa-lightbulb text-xl"></i>
+            <span class="text-xs font-extrabold uppercase tracking-wider hidden sm:inline">Botiax IA Demo</span>
+        </button>
+    </div>
+
+    <!-- MODAL DE INFORMACIÓN Y PREGUNTAS SUGERIDAS CON COPIADO -->
+    <div id="infoModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden border border-gray-100">
+            
+            <!-- Modal Header -->
+            <div class="bg-brand-dark text-white p-4 flex justify-between items-center border-b border-brand-gold/30">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-robot text-brand-gold text-xl"></i>
+                    <h3 class="font-bold text-base">Demostración Interactiva Botiax</h3>
+                </div>
+                <button onclick="toggleInfoModal()" class="text-gray-400 hover:text-white p-1 rounded-lg">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-5 overflow-y-auto space-y-4 text-sm">
+                
+                <!-- Explicación Comercial -->
+                <div class="bg-amber-50 border border-brand-gold/30 rounded-xl p-3.5 text-gray-700 leading-relaxed text-xs sm:text-sm">
+                    <p class="font-medium">
+                        Esta es una versión de prueba interactiva nuestro Bot de Hoteles, entrenado con IA.
+                    </p>
+                    <p class="mt-1 font-semibold text-brand-dark">
+                        El modelo se puede personalizar con los flujos, procesos y productos de tu empresa.
+                    </p>
+                </div>
+
+                <!-- Lista de Sugerencias con botón para copiar -->
+                <div>
+                    <h4 class="font-bold text-brand-dark text-xs uppercase tracking-wider mb-2 text-gray-500">
+                        Preguntas sugeridas para probar el Bot:
+                    </h4>
+                    
+                    <div class="space-y-2">
+                        
+                        <!-- Item 1 -->
+                        <div class="flex items-center justify-between bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2.5 transition-colors">
+                            <span class="text-xs font-medium text-gray-800 pr-2">Quiero hacer una reserva de habitación</span>
+                            <button onclick="copyQuestion('Quiero hacer una reserva de habitación', this)" class="shrink-0 bg-brand-gold/20 hover:bg-brand-gold text-brand-dark font-semibold text-xs px-2.5 py-1 rounded transition-all flex items-center gap-1" title="Copiar pregunta">
+                                <i class="fa-regular fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="flex items-center justify-between bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2.5 transition-colors">
+                            <span class="text-xs font-medium text-gray-800 pr-2">¿Qué promociones tienen?</span>
+                            <button onclick="copyQuestion('Que promociones tienen?', this)" class="shrink-0 bg-brand-gold/20 hover:bg-brand-gold text-brand-dark font-semibold text-xs px-2.5 py-1 rounded transition-all flex items-center gap-1" title="Copiar pregunta">
+                                <i class="fa-regular fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="flex items-center justify-between bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2.5 transition-colors">
+                            <span class="text-xs font-medium text-gray-800 pr-2">¿Me traen toallas a la habitación?</span>
+                            <button onclick="copyQuestion('Me traen toallas a la habitación?', this)" class="shrink-0 bg-brand-gold/20 hover:bg-brand-gold text-brand-dark font-semibold text-xs px-2.5 py-1 rounded transition-all flex items-center gap-1" title="Copiar pregunta">
+                                <i class="fa-regular fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="flex items-center justify-between bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2.5 transition-colors">
+                            <span class="text-xs font-medium text-gray-800 pr-2">¿Que se puede hacer cerca del hotel?</span>
+                            <button onclick="copyQuestion('Que se puede hacer cerca del hotel', this)" class="shrink-0 bg-brand-gold/20 hover:bg-brand-gold text-brand-dark font-semibold text-xs px-2.5 py-1 rounded transition-all flex items-center gap-1" title="Copiar pregunta">
+                                <i class="fa-regular fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                        <!-- Item 5 -->
+                        <div class="flex items-center justify-between bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2.5 transition-colors">
+                            <span class="text-xs font-medium text-gray-800 pr-2">Quiero reservar el salón de eventos para mi boda</span>
+                            <button onclick="copyQuestion('Quiero reservar el salón de eventos para mi boda', this)" class="shrink-0 bg-brand-gold/20 hover:bg-brand-gold text-brand-dark font-semibold text-xs px-2.5 py-1 rounded transition-all flex items-center gap-1" title="Copiar pregunta">
+                                <i class="fa-regular fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                        <!-- Item 6 -->
+                        <div class="flex items-center justify-between bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2.5 transition-colors">
+                            <span class="text-xs font-medium text-gray-800 pr-2">¿Qué se puede comer en el hotel?</span>
+                            <button onclick="copyQuestion('¿Qué se puede comer en el hotel?', this)" class="shrink-0 bg-brand-gold/20 hover:bg-brand-gold text-brand-dark font-semibold text-xs px-2.5 py-1 rounded transition-all flex items-center gap-1" title="Copiar pregunta">
+                                <i class="fa-regular fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                        <!-- Item 7 -->
+                        <div class="flex items-center justify-between bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2.5 transition-colors">
+                            <span class="text-xs font-medium text-gray-800 pr-2">¿El desayuno está incluido?</span>
+                            <button onclick="copyQuestion('El desayuno está incluido?', this)" class="shrink-0 bg-brand-gold/20 hover:bg-brand-gold text-brand-dark font-semibold text-xs px-2.5 py-1 rounded transition-all flex items-center gap-1" title="Copiar pregunta">
+                                <i class="fa-regular fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                        <!-- Item 8 -->
+                        <div class="flex items-center justify-between bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2.5 transition-colors">
+                            <span class="text-xs font-medium text-gray-800 pr-2">¿Tienen gym?</span>
+                            <button onclick="copyQuestion('Tienen gym?', this)" class="shrink-0 bg-brand-gold/20 hover:bg-brand-gold text-brand-dark font-semibold text-xs px-2.5 py-1 rounded transition-all flex items-center gap-1" title="Copiar pregunta">
+                                <i class="fa-regular fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                        <!-- Item 9 -->
+                        <div class="flex items-center justify-between bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2.5 transition-colors">
+                            <span class="text-xs font-medium text-gray-800 pr-2">¿Cómo es la habitación estándar?</span>
+                            <button onclick="copyQuestion('Como es la habitación estándar?', this)" class="shrink-0 bg-brand-gold/20 hover:bg-brand-gold text-brand-dark font-semibold text-xs px-2.5 py-1 rounded transition-all flex items-center gap-1" title="Copiar pregunta">
+                                <i class="fa-regular fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                        <!-- Item 10 -->
+                        <div class="flex items-center justify-between bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2.5 transition-colors">
+                            <span class="text-xs font-medium text-gray-800 pr-2">¿Hay Wifi en la habitación?</span>
+                            <button onclick="copyQuestion('Hay Wifi en la habitación?', this)" class="shrink-0 bg-brand-gold/20 hover:bg-brand-gold text-brand-dark font-semibold text-xs px-2.5 py-1 rounded transition-all flex items-center gap-1" title="Copiar pregunta">
+                                <i class="fa-regular fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                        <!-- Item 11 -->
+                        <div class="flex items-center justify-between bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-2.5 transition-colors">
+                            <span class="text-xs font-medium text-gray-800 pr-2">¿Me reservas un turno en el Spa?</span>
+                            <button onclick="copyQuestion('Me reservas un turno en el spa?', this)" class="shrink-0 bg-brand-gold/20 hover:bg-brand-gold text-brand-dark font-semibold text-xs px-2.5 py-1 rounded transition-all flex items-center gap-1" title="Copiar pregunta">
+                                <i class="fa-regular fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="bg-gray-50 p-3 text-center border-t border-gray-200">
+                <button onclick="toggleInfoModal()" class="w-full py-2 bg-brand-dark text-white rounded-lg text-xs font-bold hover:bg-gray-800 transition-colors">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lógica de navegación responsive
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Lógica del Carrusel de Imágenes
+        let currentSlide = 0;
+        const totalSlides = 5;
+        const carouselSlides = document.getElementById('carouselSlides');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function updateCarousel() {
+            carouselSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            indicators.forEach((ind, idx) => {
+                if (idx === currentSlide) {
+                    ind.classList.remove('bg-white/50');
+                    ind.classList.add('bg-brand-gold', 'w-5');
+                } else {
+                    ind.classList.add('bg-white/50');
+                    ind.classList.remove('bg-brand-gold', 'w-5');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Auto-advance carrusel cada 5 segundos
+        setInterval(nextSlide, 5000);
+        updateCarousel();
+
+        // Lógica de Preguntas Frecuentes (Acordeón)
+        function toggleFaq(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                el.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Modal de Información
+        function toggleInfoModal() {
+            const modal = document.getElementById('infoModal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Función para copiar preguntas sugeridas
+        function copyQuestion(text, btnElement) {
+            // Usar execCommand fallback para compatibilidad en iframe
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                
+                // Feedback visual en el botón
+                const originalContent = btnElement.innerHTML;
+                btnElement.innerHTML = '<i class="fa-solid fa-check text-green-600"></i> ¡Copiado!';
+                btnElement.classList.add('bg-green-100', 'text-green-800');
+                
+                setTimeout(() => {
+                    btnElement.innerHTML = originalContent;
+                    btnElement.classList.remove('bg-green-100', 'text-green-800');
+                }, 1800);
+            } catch (err) {
+                console.error('Error al copiar texto: ', err);
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+
+        function highlightSearch() {
+            // Animación feedback al presionar consultar
+            const btn = event.submitter;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Verificando...';
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Consultar Disponibilidad';
+                setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+            }, 800);
+        }
+    </script>
+
+    <!-- SCRIPT OFICIAL DEL WEBCHAT BOTIAX -->
+    <script id='_1186_ws_chat' src='https://statics.botiax.com/cgc/webchat/production/widget.js' config='eyJjb25maWdJZCI6Ii04di0yYmpxZWMyanBjaSIsIndzVG9rZW4iOiJ2eUk1dkF4NVpNdUsyaGNDMWFoLUVxQzZ3d1lHQWNJLW10TzBGZkl4OVhtaHoiLCJiYWNrU2VydmVyIjoiaHR0cHM6Ly9iYWNrZW5kLmNnYy5ib3RpYXguY29tIiwid3NTZXJ2ZXIiOiJ3c3M6Ly93cy5iYWNrZW5kLmNnYy5ib3RpYXguY29tL2NoYW5uZWxzIiwiZW5hYmxlUmVjYXB0Y2hhIjp0cnVlfQ=='></script>
+
+</body>
+</html>
